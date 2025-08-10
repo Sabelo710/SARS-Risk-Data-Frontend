@@ -1,12 +1,34 @@
-# React + Vite
+# SARS Risk Data - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## A text-based breakdown of how I would unit test this application:
 
-Currently, two official plugins are available:
+1.  Test the custom hook (`useNumberSorter.js`):
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    - Verify that the initial state is correct (sortDirection is "asc", sortedNumbers is empty).
+    - Test that `sortNumbers` correctly parses and stores numbers from a string.
+    - Test that `toggleSortDirection` switches between "asc" and "desc".
+    - Ensure that numbers are sorted correctly in both ascending and descending order.
 
-## Expanding the ESLint configuration
+2.  Test the form component (`NumberInputForm.jsx`):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    - Check that the form renders correctly.
+    - Validate that entering valid numbers enables form submission.
+    - Validate that entering invalid input (e.g., letters) shows an error.
+    - Ensure the `onSubmit` callback is called with the correct data.
+
+3.  Test the list component (`SortableNumbersList.jsx`):
+
+    - Ensure the list displays the numbers in the correct order.
+    - Test that clicking the toggle button calls the `onToggleSort` handler.
+    - Check that the sort direction label updates appropriately.
+
+4.  Test the page component (`NumberSorter.jsx`):
+
+    - Ensure the form and list render as expected.
+    - Test the integration: submitting the form updates the list, and toggling sort updates the order.
+
+5.  Test the main app (`App.jsx`):
+
+    - Ensure the `NumberSorter` page is rendered.
+
+I would use a testing library like React Testing Library and Jest to simulate user interactions and assert expected outcomes. Mock hooks or props as needed to isolate component behavior.
