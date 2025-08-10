@@ -1,5 +1,56 @@
 # SARS Risk Data - Frontend
 
+## How To Run Application
+
+Clone the project
+
+```bash
+git clone https://github.com/Sabelo710/SARS-Risk-Data-Frontend.git
+```
+
+Enter the **sars-risk-data** folder
+
+```command
+cd sars-risk-data
+```
+
+Install dependencies
+
+```node.js
+npm install
+```
+
+Run the application
+
+```node.js
+npm run dev
+```
+
+After that you will see the following on your cli
+
+you can open **http://localhost:5173** on your browser where you will see the application
+
+## Key Design Descisions
+
+- Use the **vite** build tool:
+  - Instant startup and lightning-fast Hot Module Replacement
+  - **No Webpack config. No Babel setup. Just code**.
+  - <span style="color: #f1c40f;">**Speeds up UI tweaking**</span>
+- Use **react-hook-form**:
+  - <span style="color: #f1c40f;">**Minimal re-renders - only fields that change are re-rendered, leading to significant performance gains**</span>
+  - Schema-based validation (via Yup or Zod) for future multi-step wizards
+  - Conditional validations
+- Custom **useNumberSorter:**
+  - No unnecessary re-computations since sorting only happens during render phase
+  - <span style="color: #f1c40f;">**Single responsibility principle - the hook only handles number sorting**</span>
+  - <span style="color: #f1c40f;">**Easy to test in isolation**</span>
+  - **<span style="color: #f1c40f;">Can be easily extended</span>** <span style="color: #f1c40f;">**(e.g., adding custom comparator functions) without affecting consuming components**</span>
+- Grouping css with component:
+  - Keeps code modular
+  - Makes it easy reuse in future
+
+&nbsp;
+
 ## A text-based breakdown of how I would unit test this application:
 
 1.  Test the custom hook (`useNumberSorter.js`):

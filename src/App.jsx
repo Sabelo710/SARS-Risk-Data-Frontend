@@ -2,11 +2,7 @@ import NumberSorter from "./pages/numberSorter/NumberSorter";
 import "./App.css";
 
 function App() {
-  return (
-    <>
-      <NumberSorter />
-    </>
-  );
+  return <NumberSorter />;
 }
 
 export default App;
