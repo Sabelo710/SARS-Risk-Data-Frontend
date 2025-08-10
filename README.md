@@ -28,7 +28,10 @@ npm run dev
 
 After that you will see the following on your cli
 
-you can open **http://localhost:5173** on your browser where you will see the application
+Open **http://localhost:5173** on your browser:  
+<br/>Enter comma-separated numbers e.g **25,0,0.5,1,100** and click "**Sort Numbers**"  
+<br/>Click "**Toggle Sort (Ascending/Descending)**" to sort the number list in ascending or descending order  
+<br/>Errors also show clearly
 
 ## Key Design Descisions
 
